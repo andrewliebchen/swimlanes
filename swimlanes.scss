@@ -1,0 +1,72 @@
+$color-primary: #0074D9;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  font-family: "helvetica neue", helvetica, arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.swimlanes {
+  position: relative;
+  z-index: 1;
+}
+
+.project {
+  height: 2em;
+  background-color: $color-primary;
+}
+
+// Project duration
+@for $i from 1 through 52 {
+  $percentage: percentage($i / 52);
+
+  [data-duration="#{$i}"] {
+    width: floor($percentage);
+  }
+
+  [data-start="#{$i}"] {
+    margin-left: ceil($percentage);
+  }
+}
+
+
+.background {
+  bottom: 0;
+  display: flex;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.quarter,
+.month,
+.week {
+  color: #ccc;
+  display: flex;
+  flex: 1;
+  height: 100%;
+
+  &:last-of-type {
+    border: 0;
+  }
+}
+
+.quarter {
+  border-right: 2px solid;
+}
+
+.month {
+  border-right: 1px solid;
+}
+
+.week {
+  border-right: 1px dashed;
+}

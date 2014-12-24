@@ -1,0 +1,46 @@
+<head>
+  <title>swimlanes</title>
+</head>
+
+<body>
+  {{> swimlanes}}
+  {{> background}}
+</body>
+
+<template name="swimlanes">
+  <div class="swimlanes">
+    {{> swimlane}}
+  </div>
+</template>
+
+<template name="swimlane">
+  <div class="swimlane">
+    <div class="project" data-duration="24" data-start="5"></div>
+  </div>
+</template>
+
+<template name="background">
+  <div class="background">
+    {{> quarter}}
+    {{> quarter}}
+    {{> quarter}}
+    {{> quarter}}
+  </div>
+</template>
+
+<template name="quarter">
+  <div class="quarter">
+    {{> month}}
+    {{> month}}
+    {{> month}}
+  </div>
+</template>
+
+<template name="month">
+  <div class="month">
+    <div class="week"></div>
+    <div class="week"></div>
+    <div class="week"></div>
+    <div class="week"></div>
+  </div>
+</template>
