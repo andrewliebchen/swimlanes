@@ -24,15 +24,15 @@ body {
 }
 
 // Project duration
-@for $i from 1 through 52 {
+@for $i from 1 through 48 {
   $percentage: percentage($i / 52);
 
   [data-duration="#{$i}"] {
-    width: floor($percentage);
+    width: $percentage;
   }
 
   [data-start="#{$i}"] {
-    margin-left: ceil($percentage);
+    margin-left: $percentage;
   }
 }
 
