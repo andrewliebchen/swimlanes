@@ -1,5 +1,7 @@
 if (Meteor.isClient) {
-
+  Template.background.helpers({
+    // Got to use a calender to calcuate month and quarter position
+  });
 }
 
 if (Meteor.isServer) {

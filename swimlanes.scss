@@ -25,7 +25,7 @@ body {
 
 // Project duration
 @for $i from 1 through 48 {
-  $percentage: percentage($i / 52);
+  $percentage: percentage($i / 48);
 
   [data-duration="#{$i}"] {
     width: $percentage;
