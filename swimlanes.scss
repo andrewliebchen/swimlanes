@@ -1,5 +1,7 @@
 $color-primary: #0074D9;
 
+$tab-height: 3em;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,6 +13,7 @@ body {
   font-family: "helvetica neue", helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  color: #444;
 }
 
 p {
@@ -31,7 +34,49 @@ dd {
 
 }
 
-.swimlanes {
+.width-wrapper {
+  max-width: 70em;
+  margin: 0 auto;
+  padding: 0 1em;
+}
+
+.tabs {
+  margin-top: -($tab-height);
+  position: relative;
+  z-index: 3;
+}
+
+.tab {
+  padding: 0 1em;
+  line-height: $tab-height;
+  display: inline-block;
+  cursor: pointer;
+
+
+  &.is-selected {
+    font-weight: bold;
+    color: $color-primary;
+    background-color: #f7f7f7;
+  }
+}
+
+.tab-pane {
+  display: flex;
+}
+
+.content {
+  flex: 3;
+
+  + .sidebar {
+    padding-left: 2em;
+  }
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.projects {
   position: relative;
   z-index: 1;
 }
@@ -59,50 +104,36 @@ dd {
   }
 }
 
-.panel {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
+
+// Project/show
+.project-preview {
+  position: relative;
+  padding: 2em 0 5em;
+}
+
+.project-details {
   background-color: #f7f7f7;
-  border-left: 1px solid #ddd;
-  width: 36em;
-  z-index: 3;
-  overflow: auto;
+  padding: 2em 0;
 }
 
-.panel__header,
-.panel__body {
-  padding: 2em;
-}
-
-.panel__header {
-  background-color: white;
-  border-bottom: 1px solid #ddd;
-}
-
-.panel__background {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-}
-
-.background {
+// Timeline
+.timeline {
   bottom: 0;
   display: flex;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
+
+  .project-preview & {
+    position: absolute;
+  }
 }
 
 .quarter,
 .month,
 .week {
-  color: #ccc;
+  color: #eee;
   display: flex;
   flex: 1;
   height: 100%;

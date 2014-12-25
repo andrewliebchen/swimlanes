@@ -3,19 +3,75 @@
 </head>
 
 <template name="application">
+  {{> yield}}
+</template>
+
+<template name="loading">
+  Loading
+</template>
+
+<template name="home">
   {{> swimlanes}}
-  {{> panel}}
-  {{> background}}
+  {{> timeline}}
+</template>
+
+<template name="projectShow">
+  <div class="project-preview">
+    {{> projects}}
+    {{> timeline}}
+  </div>
+  {{#each project}}
+    <nav class="tabs">
+      <div class="width-wrapper">
+        <a class="tab is-selected">Details</a>
+        <a class="tab">Discussion</a>
+        <a class="tab">Documents</a>
+      </div>
+    </nav>
+    <div class="project-details">
+      <div class="width-wrapper">
+        <div class="tab-panes">
+          <div class="tab-pane">
+            <div class="content">
+              <h2>{{name}}</h2>
+              <p>{{tagline}}</p>
+              <p>{{description}}</p>
+            </div>
+            <aside class="sidebar">
+              <dl>
+                <dt>Size</dt>
+                <dd>{{size}}</dd>
+              </dl>
+              <dl>
+                <dt>Priority</dt>
+                <dd>{{priority}}</dd>
+              </dl>
+              <dl>
+                <dt>Start</dt>
+                <dd>Week {{start}}</dd>
+              </dl>
+              <dl>
+                <dt>Duration</dt>
+                <dd>{{duration}} weeks</dd>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
 </template>
 
 <template name="swimlanes">
   <div class="swimlanes">
-    {{> swimlane}}
+    <div class="swimlane">
+      {{> projects}}
+    </div>
   </div>
 </template>
 
-<template name="swimlane">
-  <div class="swimlane">
+<template name="projects">
+  <div class="projects">
     {{#each project}}
       <div class="project mtr_project-details" data-duration="{{duration}}" data-start="{{start}}">
         <h4>{{name}}</h4>
@@ -25,42 +81,8 @@
   </div>
 </template>
 
-<template name="panel">
-  {{#if showPanel}}
-    {{#each project}}
-      <div class="panel">
-        <header class="panel__header">
-          <h2>{{name}}</h2>
-          <p>{{tagline}}</p>
-          <div class="project"></div>
-        </header>
-        <div class="panel__body">
-          <p>{{description}}</p>
-          <dl>
-            <dt>Size</dt>
-            <dd>{{size}}</dd>
-          </dl>
-          <dl>
-            <dt>Priority</dt>
-            <dd>{{priority}}</dd>
-          </dl>
-          <dl>
-            <dt>Start</dt>
-            <dd>Week {{start}}</dd>
-          </dl>
-          <dl>
-            <dt>Duration</dt>
-            <dd>{{duration}} weeks</dd>
-          </dl>
-        </div>
-      </div>
-      <div class="panel__background mtr_close-panel"></div>
-    {{/each}}
-  {{/if}}
-</template>
-
-<template name="background">
-  <div class="background">
+<template name="timeline">
+  <div class="timeline">
     {{> quarter}}
     {{> quarter}}
     {{> quarter}}

@@ -2,15 +2,16 @@ Projects = new Meteor.Collection('projects');
 
 if (Meteor.isClient) {
 
-  // Swimlanes
-  Template.swimlane.helpers({
+  Template.projects.helpers({
     project: function() {
       return Projects.find({});
     }
   });
 
-  Template.swimlane.events({
-
+  Template.projectShow.helpers({
+    project: function() {
+      return Projects.find({});
+    }
   });
 }
 
