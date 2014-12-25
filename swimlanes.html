@@ -4,6 +4,7 @@
 
 <body>
   {{> swimlanes}}
+  {{> panel}}
   {{> background}}
 </body>
 
@@ -15,8 +16,45 @@
 
 <template name="swimlane">
   <div class="swimlane">
-    <div class="project" data-duration="15" data-start="6"></div>
+    {{#each project}}
+      <div class="project mtr_project-details" data-duration="{{duration}}" data-start="{{start}}">
+        <h4>{{name}}</h4>
+      </div>
+    {{/each}}
   </div>
+</template>
+
+<template name="panel">
+  {{#if showPanel}}
+    {{#each project}}
+      <div class="panel">
+        <header class="panel__header">
+          <h2>{{name}}</h2>
+          <div class="project"></div>
+        </header>
+        <div class="panel__body">
+          <p>{{description}}</p>
+          <dl>
+            <dt>Size</dt>
+            <dd>{{size}}</dd>
+          </dl>
+          <dl>
+            <dt>Priority</dt>
+            <dd>{{priority}}</dd>
+          </dl>
+          <dl>
+            <dt>Start</dt>
+            <dd>{{Start}}</dd>
+          </dl>
+          <dl>
+            <dt>Duration</dt>
+            <dd>{{duration}}</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="panel__background mtr_close-panel"></div>
+    {{/each}}
+  {{/if}}
 </template>
 
 <template name="background">

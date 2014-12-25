@@ -1,11 +1,39 @@
+Projects = new Meteor.Collection('projects');
+
 if (Meteor.isClient) {
-  Template.background.helpers({
-    // Got to use a calender to calcuate month and quarter position
+  Session.setDefault('currentProject', null);
+
+  // Swimlanes
+  Template.swimlane.helpers({
+    project: function() {
+      return Projects.find({});
+    }
+  });
+
+  Template.swimlane.events({
+    'click .mtr_project-details': function() {
+      Session.set('currentProject', this._id);
+    }
+  });
+
+  // Panels
+  Template.panel.helpers({
+    showPanel: function() {
+      return Session.get('currentProject');
+    },
+
+    project: function() {
+      return Projects.find({_id: Session.get('currentProject')});
+    }
+  });
+
+  Template.panel.events({
+    'click .mtr_close-panel': function() {
+      Session.set('currentProject', null);
+    }
   });
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+
 }

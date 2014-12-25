@@ -19,8 +19,13 @@ body {
 }
 
 .project {
-  height: 2em;
   background-color: $color-primary;
+  border-radius: 3px;
+  color: white;
+  height: 2em;
+  line-height: 2em;
+  margin: 0.5em 0;
+  padding: 0 0.5em;
 }
 
 // Project duration
@@ -36,6 +41,35 @@ body {
   }
 }
 
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f7f7f7;
+  border-left: 1px solid #ddd;
+  width: 600px;
+  z-index: 3;
+}
+
+.panel__header,
+.panel__body {
+  padding: 2em;
+}
+
+.panel__header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
+
+.panel__background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
 
 .background {
   bottom: 0;
