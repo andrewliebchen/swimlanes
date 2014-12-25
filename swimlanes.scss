@@ -13,6 +13,10 @@ body {
   line-height: 1.5;
 }
 
+p {
+  padding-bottom: 1em;
+}
+
 .swimlanes {
   position: relative;
   z-index: 1;
@@ -48,8 +52,9 @@ body {
   bottom: 0;
   background-color: #f7f7f7;
   border-left: 1px solid #ddd;
-  width: 600px;
+  width: 36em;
   z-index: 3;
+  overflow: auto;
 }
 
 .panel__header,
