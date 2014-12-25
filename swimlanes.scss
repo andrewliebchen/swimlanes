@@ -17,6 +17,20 @@ p {
   padding-bottom: 1em;
 }
 
+dl {
+  padding-bottom: 0.5em;
+}
+
+dt {
+  font-size: 0.75em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+dd {
+
+}
+
 .swimlanes {
   position: relative;
   z-index: 1;

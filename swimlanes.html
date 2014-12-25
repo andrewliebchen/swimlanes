@@ -2,11 +2,11 @@
   <title>swimlanes</title>
 </head>
 
-<body>
+<template name="application">
   {{> swimlanes}}
   {{> panel}}
   {{> background}}
-</body>
+</template>
 
 <template name="swimlanes">
   <div class="swimlanes">
@@ -19,6 +19,7 @@
     {{#each project}}
       <div class="project mtr_project-details" data-duration="{{duration}}" data-start="{{start}}">
         <h4>{{name}}</h4>
+        <a href="{{pathFor route='projectShow'}}">Details</a>
       </div>
     {{/each}}
   </div>
@@ -45,11 +46,11 @@
           </dl>
           <dl>
             <dt>Start</dt>
-            <dd>{{Start}}</dd>
+            <dd>Week {{start}}</dd>
           </dl>
           <dl>
             <dt>Duration</dt>
-            <dd>{{duration}}</dd>
+            <dd>{{duration}} weeks</dd>
           </dl>
         </div>
       </div>
