@@ -4,7 +4,17 @@ if (Meteor.isClient) {
 
   Template.projects.helpers({
     project: function() {
-      return Projects.find({});
+      return Projects.find({parent: false});
+    },
+
+    childProjects: function() {
+      return Projects.find({parent: Session.get('currentProject')});
+    }
+  });
+
+  Template.projects.events({
+    'click .mtr_show-children': function() {
+      Session.set('currentProject', this._id);
     }
   });
 

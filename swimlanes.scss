@@ -89,6 +89,14 @@ dd {
   line-height: 2em;
   margin: 0.5em 0;
   padding: 0 0.5em;
+
+  h4 {
+    display: inline;
+  }
+
+  .children & {
+    height: 1em;
+  }
 }
 
 // Project duration

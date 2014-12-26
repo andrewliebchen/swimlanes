@@ -73,9 +73,17 @@
 <template name="projects">
   <div class="projects">
     {{#each project}}
-      <div class="project mtr_project-details" data-duration="{{duration}}" data-start="{{start}}">
+      <div class="project mtr_show-children" data-duration="{{duration}}" data-start="{{start}}">
         <h4>{{name}}</h4>
         <a href="{{pathFor route='projectShow'}}">Details</a>
+      </div>
+      <div class="children">
+        {{#each childProjects}}
+          <div class="project mtr_project-details" data-duration="{{duration}}" data-start="{{start}}">
+            <h4>{{name}}</h4>
+            <a href="{{pathFor route='projectShow'}}">Details</a>
+          </div>
+        {{/each}}
       </div>
     {{/each}}
   </div>
